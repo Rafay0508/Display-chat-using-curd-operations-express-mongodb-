@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .chat {
+        width: 30%;
+        border: 2px solid blue;
+        margin: 3%;
+        padding: 2% 3%;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Chats</h1>
+    <div>
+      <a href="/chats/new">Create New Chat</a>
+      <% chats.forEach((chat)=>{%>
+      <div class="chat">
+        <p><strong>To: </strong> <%=chat.to%></p>
+
+        <p><%=chat.message%></p>
+        <p><strong>From: </strong> <%=chat.from%></p>
+        <hr />
+        <p><strong>createdAt: </strong> <%=chat.createdAt%></p>
+        <p><strong>updatedAt: </strong><%=chat.updatedAt%></p>
+        <button><a href="/chats/update/ <%= chat.id %>">Edit</a></button>
+        <button><a href="/chats/delete/ <%= chat.id %>">Delete</a></button>
+      </div>
+      <%})%>
+    </div>
+  </body>
+</html>
